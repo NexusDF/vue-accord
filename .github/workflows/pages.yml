@@ -2,7 +2,9 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - feat/github-pages-pwa
   workflow_dispatch:
 
 permissions:
