@@ -1,0 +1,5 @@
+# Seed / demo content — not owned by Vue Accord
+
+`seedSongs.js` embeds lyrics and chord sheets of third-party songs for local/dev demos.
+They are almost certainly unlicensed copyrighted material. Do not claim ownership.
+For public GitHub Pages builds prefer `VITE_INCLUDE_SEEDS=false` (see LEGAL.md).

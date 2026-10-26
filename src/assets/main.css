@@ -1,0 +1,247 @@
+@import 'tailwindcss';
+
+:root {
+  --va-ink: #1a1a18;
+  --va-sand: #f3efe6;
+  --va-cream: #fffef9;
+  --va-muted: #6b6560;
+  --va-line: rgba(26, 26, 24, 0.14);
+  --va-teal: #0f766e;
+  --va-bar: #1a1a18;
+  --va-bar-text: #f5f0e6;
+  --va-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --va-sans: system-ui, -apple-system, sans-serif;
+  --va-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--va-sand);
+  color: var(--va-ink);
+  font-family: var(--va-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100dvh;
+}
+
+/* —— Notebook utilities —— */
+
+.va-kicker {
+  margin: 0;
+  font-family: var(--va-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--va-muted);
+}
+
+.va-title {
+  margin: 0;
+  font-family: var(--va-serif);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--va-ink);
+}
+
+.va-staff {
+  --va-staff-gap: 0.4rem;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(var(--va-staff-gap) * 4);
+  margin: 0.85rem 0 0;
+  border-top: 1px solid var(--va-line);
+  box-shadow:
+    0 var(--va-staff-gap) 0 0 var(--va-line),
+    0 calc(var(--va-staff-gap) * 2) 0 0 var(--va-line),
+    0 calc(var(--va-staff-gap) * 3) 0 0 var(--va-line),
+    0 calc(var(--va-staff-gap) * 4) 0 0 var(--va-line);
+}
+
+.va-staff::before {
+  content: '𝄞';
+  position: absolute;
+  left: 0.1rem;
+  top: 50%;
+  transform: translateY(-48%);
+  font-family: var(--va-serif);
+  font-size: 1.85rem;
+  line-height: 1;
+  color: var(--va-ink);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.va-staff--bare::before {
+  content: none;
+}
+
+.va-ruled {
+  background-color: var(--va-cream);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(1.75rem - 1px),
+    var(--va-line) calc(1.75rem - 1px),
+    var(--va-line) 1.75rem
+  );
+  background-size: 100% 1.75rem;
+  line-height: 1.75rem;
+}
+
+.va-search {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--va-ink);
+  border-radius: 0;
+  background: var(--va-cream);
+  color: var(--va-ink);
+  font-family: var(--va-sans);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  padding: 0.75rem 1rem;
+  outline: none;
+  appearance: none;
+}
+
+.va-search::placeholder {
+  color: var(--va-muted);
+}
+
+.va-search:focus {
+  border-color: var(--va-ink);
+  box-shadow: inset 0 0 0 1px var(--va-ink);
+}
+
+.va-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--va-ink);
+  border-radius: 0;
+  background: var(--va-ink);
+  color: var(--va-cream);
+  font-family: var(--va-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.va-btn:hover {
+  opacity: 0.88;
+}
+
+.va-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-family: var(--va-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.45rem 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.va-btn-outline:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.va-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--va-teal);
+  border-radius: 0;
+  background: transparent;
+  color: var(--va-teal);
+  font-family: var(--va-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  min-width: 2rem;
+  padding: 0.35rem 0.45rem;
+}
+
+.va-meta {
+  margin: 0;
+  font-family: var(--va-sans);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--va-muted);
+}
+
+.va-link {
+  color: var(--va-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--va-line);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.va-link:hover {
+  color: var(--va-teal);
+  border-bottom-color: var(--va-teal);
+}
+
+.va-sheet {
+  background: var(--va-cream);
+  border: 1px solid var(--va-line);
+  border-radius: 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.va-sheet--flush {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Classic form fields (square notebook inputs) */
+.field {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--va-ink);
+  border-radius: 0;
+  background: var(--va-cream);
+  color: var(--va-ink);
+  font-family: var(--va-sans);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  padding: 0.6rem 0.75rem;
+  outline: none;
+  appearance: none;
+  transition: box-shadow 0.15s ease;
+}
+
+.field::placeholder {
+  color: var(--va-muted);
+}
+
+.field:focus {
+  box-shadow: inset 0 0 0 1px var(--va-ink);
+}
